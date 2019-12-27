@@ -4,7 +4,7 @@
 
 $ErrorActionPreference = "Stop"
 
-Get-WmiObject win32_processor
+gwmi -query "SELECT Name FROM Win32_Processor"
 
 mkdir build
 cd build
