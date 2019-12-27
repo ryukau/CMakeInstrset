@@ -15,8 +15,8 @@ add_library(some_avx512 OBJECT some.cpp)
 add_executable(test_vcl vcl/instrset_detect.cpp main.cpp)
 
 if(MSVC)
-  target_compile_options(some_sse41 PRIVATE
-    /O2 /fp:fast)
+  # target_compile_options(some_sse41 PRIVATE
+  #   /O2 /fp:fast)
   target_compile_options(some_avx2 PRIVATE
     /O2 /fp:fast /arch:AVX2)
   target_compile_options(some_avx512 PRIVATE
@@ -41,4 +41,4 @@ endif()
 
 # Do not change order of some_* targets. Changing order cause illegal instruction.
 target_link_libraries(test_vcl
-  some_sse41 some_avx2 some_avx512)
+   some_avx2 some_avx512)
