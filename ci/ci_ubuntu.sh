@@ -18,6 +18,7 @@ cd build || exit
 cmake ..
 cmake --build .
 
+sudo apt-get install tree
 tree
 
 ./test_vcl

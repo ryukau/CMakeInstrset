@@ -17,7 +17,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
       with:
-        path: VSTPlugins
         submodules: recursive
     - name: Run script
       run: ci/ci_windows.ps1
