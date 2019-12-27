@@ -4,12 +4,16 @@
 
 #if INSTRSET >= 10
 #define SOME_NAME Some_AVX512
+#warning Some_AVX512
 #elif INSTRSET >= 8
 #define SOME_NAME Some_AVX2
+#warning Some_AVX2
 #elif INSTRSET >= 5
 #define SOME_NAME Some_SSE41
+#warning Some_SSE41
 #elif INSTRSET == 2
 #define SOME_NAME Some_SSE2
+#warning Some_SSE2
 #else
 #error Unsupported instruction set
 #endif
