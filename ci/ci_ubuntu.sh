@@ -19,6 +19,6 @@ cmake ..
 cmake --build .
 
 sudo apt-get install tree
-tree -n
+tree --charset ascii
 
 ./test_vcl
