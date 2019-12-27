@@ -1,0 +1,13 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build-macOS:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        submodules: recursive
+    - name: Run script
+      run: ci/ci_macOS.sh
