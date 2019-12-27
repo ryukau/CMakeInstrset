@@ -5,10 +5,13 @@
 
 set -e
 
+sysctl -n machdep.cpu.brand_string
+system_profiler SPHardwareDataType
+
 mkdir build
 cd build || exit
 
-cmake ..
+cmake -GXcode ..
 cmake --build .
 
 ./test_vcl
