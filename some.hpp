@@ -42,6 +42,5 @@ struct alignas(64) Runner {
   };
 
 SOME_CLASS(SSE41)
-SOME_CLASS(AVX)
 SOME_CLASS(AVX2)
 SOME_CLASS(AVX512)
