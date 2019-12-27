@@ -8,12 +8,12 @@
 #elif INSTRSET >= 8
 #define SOME_NAME Some_AVX2
 #warning Some_AVX2
+#elif INSTRSET >= 7
+#define SOME_NAME Some_AVX
+#warning Some_AVX
 #elif INSTRSET >= 5
 #define SOME_NAME Some_SSE41
 #warning Some_SSE41
-#elif INSTRSET == 3
-#define SOME_NAME Some_SSE3
-#warning Some_SSE3
 #else
 #error Unsupported instruction set
 #endif

@@ -13,6 +13,8 @@ std::unique_ptr<SomeInterface> getSome()
     some = std::make_unique<Some_AVX512>();
   } else if (iset >= 8) {
     some = std::make_unique<Some_AVX2>();
+  } else if (iset >= 8) {
+    some = std::make_unique<Some_AVX>();
   } else if (iset >= 5) {
     some = std::make_unique<Some_SSE41>();
   } else {
@@ -56,7 +58,8 @@ int main()
 
   run(getSome(), "Runtime");
 
-  // run(std::make_unique<Some_SSE41>(), "SSE4.1");
+  run(std::make_unique<Some_SSE41>(), "SSE4.1");
+  run(std::make_unique<Some_AVX>(), "AVX");
   // run(std::make_unique<Some_AVX2>(), "AVX2");
   // run(std::make_unique<Some_AVX512>(), "AVX512");
   return 0;
