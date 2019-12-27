@@ -52,12 +52,12 @@ void run(std::unique_ptr<SomeInterface> some, const char *name)
 
 int main()
 {
-  run(std::make_unique<Some_SSE41>(), "Dry run");
+  // run(std::make_unique<Some_SSE41>(), "Dry run");
 
   run(getSome(), "Runtime");
 
-  run(std::make_unique<Some_SSE41>(), "SSE4.1");
-  run(std::make_unique<Some_AVX2>(), "AVX2");
-  run(std::make_unique<Some_AVX512>(), "AVX512");
+  // run(std::make_unique<Some_SSE41>(), "SSE4.1");
+  // run(std::make_unique<Some_AVX2>(), "AVX2");
+  // run(std::make_unique<Some_AVX512>(), "AVX512");
   return 0;
 }
