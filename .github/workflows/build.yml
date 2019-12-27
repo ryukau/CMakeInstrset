@@ -3,6 +3,25 @@ name: CI
 on: [push]
 
 jobs:
+  build-ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        submodules: recursive
+    - name: Run script
+      run: ci/ci_ubuntu.sh
+
+  build-windows:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        path: VSTPlugins
+        submodules: recursive
+    - name: Run script
+      run: ci/ci_windows.ps1
+
   build-macOS:
     runs-on: macos-latest
     steps:
