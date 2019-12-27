@@ -52,7 +52,7 @@ void run(std::unique_ptr<SomeInterface> some, const char *name)
 
 int main()
 {
-  // run(std::make_unique<Some_SSE41>(), "Dry run");
+  run(std::make_unique<Some_SSE41>(), "Dry run");
 
   run(getSome(), "Runtime");
 
