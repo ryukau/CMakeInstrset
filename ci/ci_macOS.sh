@@ -19,4 +19,4 @@ cd build || exit
 cmake -GXcode ..
 cmake --build .
 
-./test_vcl
+./Debug/test_vcl
