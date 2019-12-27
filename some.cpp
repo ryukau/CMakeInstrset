@@ -8,9 +8,9 @@
 #elif INSTRSET >= 8
 #define SOME_NAME Some_AVX2
 #pragma message("Some_AVX2")
-#elif INSTRSET >= 5
-#define SOME_NAME Some_SSE41
-#pragma message("Some_SSE41")
+#elif INSTRSET >= 7
+#define SOME_NAME Some_AVX
+#pragma message("Some_AVX")
 #else
 #error Unsupported instruction set
 #endif
