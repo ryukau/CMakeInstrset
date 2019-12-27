@@ -4,6 +4,11 @@
 #include <iostream>
 #include <memory>
 
+#ifndef Some_SSE2
+#define Some_SSE2 Some_SSE41
+#warning Some_SSE2 is replaced to Some_SSE41
+#endif
+
 std::unique_ptr<SomeInterface> getSome()
 {
   std::unique_ptr<SomeInterface> some;
