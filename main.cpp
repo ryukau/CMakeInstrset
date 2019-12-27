@@ -4,11 +4,6 @@
 #include <iostream>
 #include <memory>
 
-#ifndef Some_SSE2
-#define Some_SSE2 Some_SSE41
-#warning Some_SSE2 is replaced to Some_SSE41
-#endif
-
 std::unique_ptr<SomeInterface> getSome()
 {
   std::unique_ptr<SomeInterface> some;
@@ -20,10 +15,11 @@ std::unique_ptr<SomeInterface> getSome()
     some = std::make_unique<Some_AVX2>();
   } else if (iset >= 5) {
     some = std::make_unique<Some_SSE41>();
-  } else if (iset >= 2) {
-    some = std::make_unique<Some_SSE2>();
+  } else if (iset >= 3) {
+    some = std::make_unique<Some_SSE3>();
   } else {
-    std::cerr << "\nError: Instruction set SSE2 not supported on this computer";
+    std::cerr
+      << "\nError: Instruction set SSE3 or higher not supported on this computer";
     exit(EXIT_FAILURE);
   }
 
@@ -58,11 +54,11 @@ void run(std::unique_ptr<SomeInterface> some, const char *name)
 
 int main()
 {
-  run(std::make_unique<Some_SSE2>(), "Dry run");
+  run(std::make_unique<Some_SSE3>(), "Dry run");
 
   run(getSome(), "Runtime");
 
-  run(std::make_unique<Some_SSE2>(), "SSE2");
+  run(std::make_unique<Some_SSE3>(), "SSE3");
   run(std::make_unique<Some_SSE41>(), "SSE4.1");
   run(std::make_unique<Some_AVX2>(), "AVX2");
   run(std::make_unique<Some_AVX512>(), "AVX512");

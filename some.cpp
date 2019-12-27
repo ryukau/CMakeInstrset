@@ -11,9 +11,9 @@
 #elif INSTRSET >= 5
 #define SOME_NAME Some_SSE41
 #warning Some_SSE41
-#elif INSTRSET == 2
-#define SOME_NAME Some_SSE2
-#warning Some_SSE2
+#elif INSTRSET == 3
+#define SOME_NAME Some_SSE3
+#warning Some_SSE3
 #else
 #error Unsupported instruction set
 #endif

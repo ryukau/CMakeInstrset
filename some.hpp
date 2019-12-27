@@ -41,7 +41,7 @@ struct alignas(64) Runner {
     float sum() override;                                                                \
   };
 
-SOME_CLASS(SSE2)
+SOME_CLASS(SSE3)
 SOME_CLASS(SSE41)
 SOME_CLASS(AVX2)
 SOME_CLASS(AVX512)
