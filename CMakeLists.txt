@@ -7,7 +7,8 @@ project(test_vcl)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-add_library(some_sse3 OBJECT some.cpp)
+# macOS environment on GitHub Actions doesn't seem to have support for SSE3 or lower.
+# With -msse2 or -msse3, clang++ just compiles into SSE4.1 code.
 add_library(some_sse41 OBJECT some.cpp)
 add_library(some_avx2 OBJECT some.cpp)
 add_library(some_avx512 OBJECT some.cpp)
@@ -15,8 +16,6 @@ add_library(some_avx512 OBJECT some.cpp)
 # ./test_vcl segfaults with following optimization options:
 # - g++     : -O0
 # - clang++ : -O0 -O1 -Og
-target_compile_options(some_sse3 PRIVATE
-  -O3 -msse3)
 target_compile_options(some_sse41 PRIVATE
   -O3 -msse4.1)
 target_compile_options(some_avx2 PRIVATE
@@ -30,4 +29,4 @@ target_compile_options(test_vcl PRIVATE
 
 # Do not change order of some_* targets. Changing order cause illegal instruction.
 target_link_libraries(test_vcl
-  some_sse3 some_sse41 some_avx2 some_avx512)
+  some_sse41 some_avx2 some_avx512)

@@ -15,11 +15,9 @@ std::unique_ptr<SomeInterface> getSome()
     some = std::make_unique<Some_AVX2>();
   } else if (iset >= 5) {
     some = std::make_unique<Some_SSE41>();
-  } else if (iset >= 3) {
-    some = std::make_unique<Some_SSE3>();
   } else {
     std::cerr
-      << "\nError: Instruction set SSE3 or higher not supported on this computer";
+      << "\nError: Instruction set SSE4.1 or higher not supported on this computer";
     exit(EXIT_FAILURE);
   }
 
@@ -54,11 +52,10 @@ void run(std::unique_ptr<SomeInterface> some, const char *name)
 
 int main()
 {
-  run(std::make_unique<Some_SSE3>(), "Dry run");
+  run(std::make_unique<Some_SSE41>(), "Dry run");
 
   run(getSome(), "Runtime");
 
-  run(std::make_unique<Some_SSE3>(), "SSE3");
   run(std::make_unique<Some_SSE41>(), "SSE4.1");
   run(std::make_unique<Some_AVX2>(), "AVX2");
   run(std::make_unique<Some_AVX512>(), "AVX512");
