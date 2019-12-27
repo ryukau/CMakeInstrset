@@ -19,4 +19,7 @@ cd build || exit
 cmake -GXcode ..
 cmake --build .
 
+brew install tree
+tree --charset ascii
+
 ./Debug/test_vcl
