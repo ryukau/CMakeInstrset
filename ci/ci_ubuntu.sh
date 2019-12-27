@@ -19,6 +19,6 @@ cmake ..
 cmake --build .
 
 sudo apt-get install tree
-tree
+tree -n
 
 ./test_vcl
