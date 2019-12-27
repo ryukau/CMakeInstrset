@@ -3,6 +3,7 @@
 #include <chrono>
 #include <iostream>
 #include <memory>
+#include <string>
 
 std::unique_ptr<SomeInterface> getSome()
 {
@@ -16,8 +17,7 @@ std::unique_ptr<SomeInterface> getSome()
   } else if (iset >= 5) {
     some = std::make_unique<Some_AVX>();
   } else {
-    std::cerr
-      << "\nError: Instruction set AVX or higher not supported on this computer";
+    std::cerr << "\nError: Instruction set AVX or higher not supported on this computer";
     exit(EXIT_FAILURE);
   }
 
