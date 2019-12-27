@@ -16,7 +16,7 @@ add_executable(test_vcl vcl/instrset_detect.cpp main.cpp)
 
 if(MSVC)
   target_compile_options(some_sse41 PRIVATE
-    /O2 /fp:fast /arch:SSE2)
+    /O2 /fp:fast)
   target_compile_options(some_avx2 PRIVATE
     /O2 /fp:fast /arch:AVX2)
   target_compile_options(some_avx512 PRIVATE

@@ -4,10 +4,13 @@
 
 #if INSTRSET >= 10
 #define SOME_NAME Some_AVX512
+#pragma message("Some_AVX512")
 #elif INSTRSET >= 8
 #define SOME_NAME Some_AVX2
+#pragma message("Some_AVX2")
 #elif INSTRSET >= 5
 #define SOME_NAME Some_SSE41
+#pragma message("Some_SSE41")
 #else
 #error Unsupported instruction set
 #endif
